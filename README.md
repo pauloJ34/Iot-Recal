@@ -13,7 +13,7 @@
 
 ## Instalação
 
-Primeiro é preciso realizar a instalação do lua, para isso pode usar esse tutorial<a href="https://terminalroot.com.br/2022/07/lua-windows.html">Link</a> e do luarocks pode usar esse tutorial <a href=""></a> ou pode usar o chocolatey usando o comando:
+Primeiro é preciso realizar a instalação do lua, para isso pode usar esse tutorial <a href="https://terminalroot.com.br/2022/07/lua-windows.html">Link</a> e do luarocks pode usar esse tutorial <a href="https://github.com/luarocks/luarocks/wiki/Download">Link</a> ou pode usar o chocolatey usando o comando:
 
 #### Lua
 ```
