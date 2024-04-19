@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="theme-light">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/bulma.min.css">
+  <link rel="stylesheet" href="/static/icon/all.min.css">
+</head>
+<body>
+    <%content_for("inner")%>
+</body>
+<script src="/static/JS/Script.js"></script>
+<link rel="stylesheet" href="/static/CSS/index.css">
+</html>

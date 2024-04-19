@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: back-front
+    image: lapis-modificado 
+    restart: always
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app/
+
+    command: "lapis server"
