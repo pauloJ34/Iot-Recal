@@ -51,7 +51,12 @@ sua distribuição.</p>
 luarocks install lapis
 ```
 ### OpenResty
-Para a **instalação do OpenResty**, é recomendado a instalação pelo site do OpenResty <a href="https://openresty.org/en/installation.html">link</a>
+Para a **instalação do OpenResty**, é recomendado a instalação pelo site do OpenResty <a href="https://openresty.org/en/installation.html">link</a>, o site apresenta um tutorial de instalação.
 
 
-## Executando os testes
+## Execução e testes
+
+Para a execução do servidor:
+```
+lapis server
+```
