@@ -1,8 +1,6 @@
-# titulo do software
+# Iot-Recal
 
-"tituo do software" é um sistema de recebimento de dados de dispositivos IOTs e visualização dos dados coletados pelo sistema.
-
-## 
+Iot-Recal" é um sistema de recebimento de dados de dispositivos IOTs e visualização dos dados coletados pelo sistema.
 
 ## Pré-Requisitos
 
@@ -51,7 +49,7 @@ sua distribuição.</p>
 luarocks install lapis
 ```
 ### OpenResty
-Para a **instalação do OpenResty**, é recomendado a instalação pelo site do OpenResty <a href="https://openresty.org/en/installation.html">link</a>, o site apresenta um tutorial de instalação.
+Para a **instalação do OpenResty**, é recomendado a instalação pelo site do OpenResty <a href="https://openresty.org/en/installation.html">Link</a>, o site apresenta um tutorial de instalação.
 
 
 ## Execução e testes
