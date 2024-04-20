@@ -1,16 +1,14 @@
-<main class="bg-img hero is-fullheight">
-  <div class="hero-head">
     <% render(".views.components.header.Navbar_menu") %>
-  </div>
+<main class="bg-img hero is-fullheight">
   <div class="hero-body is-justify-content-center">
     <div class="is-flex">
       <nav class="panel">
         <p class="panel-heading">Login</p>
         <div class="panel-block has-background-white">
-          <div class="">
+          <form action="<%= url_for('login-post')%>" method="post">
             <div class="field">
               <p class="control has-icons-left">
-                <input class="input" type="text" placeholder="Matrícula" />
+                <input class="input" type="text" name="username" placeholder="Matrícula" />
                 <span class="icon is-small is-left">
                   <i class="fas fa-user"></i>
                 </span>
@@ -18,7 +16,7 @@
             </div>
             <div class="field">
               <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Senha" />
+                <input class="input" type="password" name="password" placeholder="Senha" />
                 <span class="icon is-small is-left">
                   <i class="fas fa-lock"></i>
                 </span>
@@ -32,7 +30,7 @@
                 <button class="button is-link is-light">Cancel</button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </nav>
     </div>

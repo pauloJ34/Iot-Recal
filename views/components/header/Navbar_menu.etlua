@@ -1,4 +1,4 @@
-<nav class="navbar has-background-light" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark">
       <div class="navbar-brand">
       <!-- <a class="navbar-item" href="https://bulma.io">
           <svg
@@ -39,7 +39,7 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="/"> Home </a>
+          <a class="navbar-item has-text-centered" href="/"> IOT <br>Recieves </a>
 
           <!-- <a class="navbar-item"> Documentation </a> -->
 
@@ -52,13 +52,21 @@
             </div>
           </div> 
         </div>
-
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary" href="<%= url_for('login')%>"> Login </a>
+        <% if session.user then %>
+          <div class="navbar-item has-dropdown is-hoverable ">
+           <a class="navbar-link"> <%=session.user.userName%> </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-danger" href="<%= url_for('logout')%>"> Logout  </a>
+            </div>
+          </div> 
+        <% else %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary" href="<%= url_for('login')%>"> login </a>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </nav>

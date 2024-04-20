@@ -1,7 +1,5 @@
+<% render(".views.components.header.Navbar_menu") %>
 <main class="hero">
-  <div class="hero-head">
-    <% render(".views.components.header.Navbar_menu") %>
-  </div>
   <div class="hero-body">
     <div class="is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
       <div class="content is-flex is-align-items-center">
