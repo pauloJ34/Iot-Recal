@@ -1,6 +1,6 @@
 # Iot-Recal
 
-Iot-Recal" é um sistema de recebimento de dados de dispositivos IOTs e visualização dos dados coletados pelo sistema.
+Iot-Recal é um sistema de recebimento de dados de dispositivos IOTs e visualização dos dados coletados pelo sistema.
 
 ## Pré-Requisitos
 
