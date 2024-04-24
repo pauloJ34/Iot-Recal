@@ -56,3 +56,24 @@
 
 <script src="/static/JS/chart/chart.umd.js"></script>
 <script src="/static/JS/chartScript.js"></script>
+<script>
+  // console.log(list_data)
+  const list_data = [
+    {
+      name: "field - 1",
+      colum: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      data: [12, 19, 3, 5, 2, 3],
+    },
+    {
+      name: "field - 2",
+      colum: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      data: [12, 19, 3, 5, 2, 3],
+    },
+    {
+      name: "field - 3",
+      colum: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      data: [12, 19, 3, 5, 2, 3],
+    },
+  ];
+  canvas_itens(list_data, list_data);
+</script>

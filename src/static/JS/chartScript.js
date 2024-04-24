@@ -1,6 +1,6 @@
 const list_canvas = document.getElementById("list-canvas");
 
-function createCanvas() {
+function createCanvas(item) {
   let div = document.createElement("div");
   let canva = document.createElement("canvas");
   let div_2 = document.createElement("div");
@@ -21,17 +21,15 @@ function createCanvas() {
   div.appendChild(div_2);
   div.appendChild(canva);
   list_canvas.appendChild(div);
+
+  create_open_close(item);
 }
 
-for (let index = 0; index < 5; index++) {
-  createCanvas();
-}
-
-const canvas = document.querySelectorAll(".canvas-chart");
-const div_canvas = document.querySelectorAll(".item-canvas");
-const div_button_canvas = document.querySelectorAll(".close-tab");
-const close_button_canvas = document.querySelectorAll(".close-icon");
-for (let index = 0; index < div_canvas.length; index++) {
+function create_open_close(index) {
+  const canvas = document.querySelectorAll(".canvas-chart");
+  const div_canvas = document.querySelectorAll(".item-canvas");
+  const div_button_canvas = document.querySelectorAll(".close-tab");
+  const close_button_canvas = document.querySelectorAll(".close-icon");
   canvas[index].addEventListener("click", (e) => {
     if (!div_button_canvas[index].classList.contains("is-display-block")) {
       div_button_canvas[index].classList.add("is-display-block");
@@ -46,19 +44,18 @@ for (let index = 0; index < div_canvas.length; index++) {
   });
 }
 
-
-function removeAbsoluteCanvas(i) {}
-for (let index in canvas) {
+function add_statistics(data, index) {
   let cont = parseInt(index) + 1;
-
-  new Chart(canvas[index], {
+  const canvas = document.querySelectorAll(".canvas-chart")[index];
+  const list_data_canvas = data[index];
+  new Chart(canvas, {
     type: "line",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: list_data_canvas.colum,
       datasets: [
         {
-          label: "field-" + cont,
-          data: [12, 19, 3, 5, 2, 3],
+          label: list_data_canvas.name,
+          data: list_data_canvas.data,
           borderWidth: 1,
         },
       ],
@@ -72,3 +69,27 @@ for (let index in canvas) {
     },
   });
 }
+
+function canvas_itens(data, list_data) {
+  for (let index in list_data) {
+    createCanvas(index);
+    add_statistics(data, index);
+  }
+}
+fetch("http://localhost:8080/fielddata")
+  .then((response) => {
+    // ...
+    // console.log(response.json())
+    return response.json()
+  })
+  .then((data) => {
+    // ...
+    let fields = data
+    fields.map((fields) =>{
+      console.log(fields)
+    })
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });

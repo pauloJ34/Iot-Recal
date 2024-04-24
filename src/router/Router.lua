@@ -15,6 +15,7 @@ return function ()
     
     --POST
     local login_back= require("src.controller.POST.Logar")
+    local data_field= require("src.controller.POST.DataField")
     
     -- Rotas de requisições --
     
@@ -33,6 +34,7 @@ return function ()
 
     -- Metodo POST
     app:post("login-post", "/logar",json_params(login_back))
+    app:get("fielddata", "/fielddata", data_field)
 
     -- teste de requisição de api externa
     app:get("teste", "/teste", function ()end)
