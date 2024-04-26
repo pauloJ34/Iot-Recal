@@ -11,4 +11,6 @@ RUN apk --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/main add\
     openresty\
     luarocks \
     && cd /usr/bin/ && mv luarocks-5.1 luarocks \
-    && luarocks install lapis
+    && luarocks install lapis \
+		&& luarocks install --local luabitop  \
+		&& luarocks install --local lapis-annotate
