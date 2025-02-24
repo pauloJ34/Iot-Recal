@@ -10,11 +10,11 @@ function createCanvas(item) {
 
   canva.classList.add("canvas-chart");
 
-  div_2.classList.add("close-tab");
+  // div_2.classList.add("close-tab");
 
-  icon.classList.add("fas");
-  icon.classList.add("fa-times");
-  icon.classList.add("close-icon");
+  // icon.classList.add("fas");
+  // icon.classList.add("fa-times");
+  // icon.classList.add("close-icon");
 
   div_2.appendChild(icon);
 
@@ -29,29 +29,31 @@ function create_open_close(index) {
   const canvas = document.querySelectorAll(".canvas-chart");
   const div_canvas = document.querySelectorAll(".item-canvas");
   const div_button_canvas = document.querySelectorAll(".close-tab");
-  const close_button_canvas = document.querySelectorAll(".close-icon");
+  // const close_button_canvas = document.querySelectorAll(".close-icon");
   canvas[index].addEventListener("click", (e) => {
     if (!div_button_canvas[index].classList.contains("is-display-block")) {
-      div_button_canvas[index].classList.add("is-display-block");
-      div_canvas[index].classList.add("is-absolute");
+      // div_button_canvas[index].classList.toggle("is-display-block");
+      div_canvas[index].classList.toggle("is-absolute");
     }
   });
-  close_button_canvas[index].addEventListener("click", (e) => {
-    if (div_button_canvas[index].classList.contains("is-display-block")) {
-      div_button_canvas[index].classList.remove("is-display-block");
-      div_canvas[index].classList.remove("is-absolute");
-    }
-  });
+  // close_button_canvas[index].addEventListener("click", (e) => {
+  //   if (div_button_canvas[index].classList.contains("is-display-block")) {
+  //     div_button_canvas[index].classList.remove("is-display-block");
+  //     div_canvas[index].classList.remove("is-absolute");
+  //   }
+  // });
 }
 
 function add_statistics(data, index) {
-  let cont = parseInt(index) + 1;
+  console.log(data,"------------", index)
+
+  // let cont = parseInt(index) + 1;
   const canvas = document.querySelectorAll(".canvas-chart")[index];
   const list_data_canvas = data[index];
   new Chart(canvas, {
     type: "line",
     data: {
-      labels: list_data_canvas.colum,
+      labels: list_data_canvas.column,
       datasets: [
         {
           label: list_data_canvas.name,
@@ -61,6 +63,8 @@ function add_statistics(data, index) {
       ],
     },
     options: {
+      onResize: () => {
+          },
       scales: {
         y: {
           beginAtZero: true,
@@ -70,13 +74,13 @@ function add_statistics(data, index) {
   });
 }
 
-function canvas_itens(data, list_data) {
+function canvas_itens(list_data) {
   for (let index in list_data) {
     createCanvas(index);
-    add_statistics(data, index);
+    add_statistics(list_data, index);
   }
 }
-fetch("http://localhost:8080/fielddata")
+fetch("http://127.0.0.1:8080/fielddata")
   .then((response) => {
     // ...
     // console.log(response.json())
@@ -84,10 +88,18 @@ fetch("http://localhost:8080/fielddata")
   })
   .then((data) => {
     // ...
+
+    
+    const itens = document.querySelectorAll(".item-canvas");
+    for(let i of itens){
+      i.remove()
+    }
+
     let fields = data
-    fields.map((fields) =>{
+    fields.map((fields) => {
       console.log(fields)
-    })
+      canvas_itens(fields);
+      })
 
   })
   .catch(function (error) {

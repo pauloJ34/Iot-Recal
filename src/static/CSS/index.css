@@ -4,6 +4,7 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
 .close-tab {
   display: none;
   min-width: 100%;
@@ -13,16 +14,19 @@
   text-align: right;
   cursor: pointer;
 }
-.is-display-block{
+
+.is-display-block {
   display: block;
 }
-.close-absolute::after{
+
+.close-absolute::after {
   content: "";
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: 1000;
 }
+
 .close-icon {
   font-size: 20px;
   background-color: rgb(199, 47, 47);
@@ -30,24 +34,28 @@
   padding: 10px;
   line-height: 0.7;
 }
+
 .overflow-hidden {
   overflow-y: hidden;
 }
+
 .list-canvas {
   margin-top: 50px;
 }
+
 .item-canvas {
   position: relative;
-  width: 30vw;
-  height: 25vh;
+  width: 45vw;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  margin: 15px 0;
-  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.2);
+  margin: 15px 3px;
+  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
 }
+
 .item-canvas.is-absolute {
   /* position: absolute; */
   width: 90vw;
@@ -56,6 +64,7 @@
   margin-bottom: 100px;
   padding: 50px 20px;
 }
+
 .conteiner-update-data {
   min-height: 10vh;
   /* max-height: 15vh; */
@@ -64,39 +73,56 @@
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
 .date-time-variables {
   min-width: 175px;
   max-width: 200px;
   padding: 20px;
 }
+
 .data-variables {
   background-color: #f2f2f2;
   border: 1px solid #e2e2e2;
   margin: 15px 30px;
   padding: 10px;
 }
+
 .data-field {
   padding: 5px;
   text-decoration: underline;
 }
+
 @media only screen and (max-width: 1023px) {
-  .item-canvas {
-    flex: 1;
-    flex-basis: 100%;
-    height: 50vh;
+  .hero-body{
+    padding: 1.5rem;
   }
+  .item-canvas {
+    /* flex: 1;
+    flex-basis: 100%; */
+    flex-direction: column;
+    width: 90vw;
+    max-width: 510px;
+    height: 80vh;
+    max-height: 460px;
+  }
+
   .item-canvas.is-absolute {
     /* position: absolute; */
     width: 100vw;
+    max-width: 100vw;
     height: 100vh;
-    z-index: 1000;
+    max-height: 100vw;
+    /* z-index: 1000; */
+    margin: 0;
   }
+
   .conteiner-update-data {
     max-width: 80vw !important;
     overflow-y: hidden;
     flex-wrap: wrap;
     margin: 0;
   }
+
   .data-variables {
     margin: 0;
     padding: 10px;
