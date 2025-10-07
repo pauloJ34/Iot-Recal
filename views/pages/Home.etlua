@@ -7,15 +7,16 @@
           <div class="date-time-variables">
             <div class="dataTime">
               <strong class="">DATA:</strong>
-              <span class="">15/08/2021</span>
+              <span class="">15/09/2025</span>
             </div>
             <div class="dataTime">
               <strong class="">TIME:</strong>
-              <span class="">12:58:02</span>
+              <span class="">12:15:10</span>
             </div>
           </div>
           <div
-            class="data-variables is-justify-content-space-between is-flex is-flex-wrap-wrap"
+            class="data-variables is-justify-content-space-between is-flex is-flex-wrap-wrap" 
+						id="data-variables"
           >
             <div class="data-field">
               <strong class="" id="field-1">Field-1:</strong>

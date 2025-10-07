@@ -12,7 +12,8 @@ config("development", {
   bind_host = "0.0.0.0",
   code_cache = "off",
   num_workers = "1",
-  session_name = "IoT Recieve",
+  session_name = "IoT-Recieve",
   secret = "Tudo começa com erros e acertos ",
-	-- logging = false,
+  logging = false,
+  requests = false,
 })

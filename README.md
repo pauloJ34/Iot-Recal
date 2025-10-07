@@ -46,7 +46,12 @@ sua distribuição.</p>
 <p>Para a instalação do <strong>Lapis</strong> é igual a todos no terminal:</p>
 
 ```
-luarocks --local --lua-version-5.1 install lapis
+luarocks --local --lua-version=5.1 install lapis lapis-annotate
+```
+<p>Se tiver o problema <strong>Error: module 'bit' not found:</strong> é necessario instalar o pacote "luabitop", codigo de instalação abaixo:</p>
+
+```
+luarocks --local --lua-version=5.1 luabitop
 ```
 ### OpenResty
 Para a **instalação do OpenResty**, é recomendado a instalação pelo site do OpenResty <a href="https://openresty.org/en/installation.html">Link</a>, o site apresenta um tutorial de instalação.

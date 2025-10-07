@@ -1,4 +1,4 @@
-    <% render(".views.components.header.Navbar_menu") %>
+<% render(".views.components.header.Navbar_menu") %>
 <main class="bg-img hero is-fullheight">
   <div class="hero-body is-justify-content-center">
     <div class="is-flex">

@@ -1,5 +1,6 @@
 local lapis = require("lapis")
 local json_params = require("lapis.application").json_params
+local validate = require("lapis.validate")
 local app = lapis.Application()
 
 app:enable("etlua")
@@ -17,7 +18,7 @@ return function()
 	--POST
 	local login_back = require("src.controller.POST.Logar")
 	local data_field = require("src.controller.POST.DataField")
-	-- Rotas de requisições --
+-- Rotas de requisições --
 	--[[
         Observações:
         - a função da requição fica em src/controller
@@ -39,7 +40,33 @@ return function()
 	-- teste de requisição de api externa
 	app:get("teste", "/teste", function() end)
 
-	-- Metodo POST
+	-- Metodo GET/POST
+	app:match("iot", "/iot",function(self) 
+
+		local parametros = self.params
+
+		print("\n\nGET = ".. parametros.id .."\n\n")
+		
+		if parametros.key then
+			print("\nTem o parametro key\n")
+			
+			return {status= 200}
+
+		elseif not parametros.key then
+
+			return {	status= 400, 
+								json={
+									message="Não possui o parametro key!",
+									status = 400, 
+								}
+							}
+		end
+	end)
+
+	app:match("iot", "/iot-json",json_params(function(self)
+		
+	end))
+
 
 	-- Metodo PUT
 
