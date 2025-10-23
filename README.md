@@ -42,14 +42,14 @@ sua distribuição.</p>
 ```
 luarocks --local --lua-version=5.1 install lapis lapis-annotate
 ```
-<p>Se tiver o problema <strong>"Error: module 'bit' not found:"</strong> é necessario instalar o pacote "luabitop", código de instalação abaixo:</p>
+<p>Se apresentar esse problema "<strong>"Error: module 'bit' not found:"</strong>" é necessario instalar o pacote "luabitop", código de instalação abaixo:</p>
 
 ```
 luarocks --local --lua-version=5.1 luabitop
 ```
 ### OpenResty
 Para a **instalação do OpenResty**, é recomendado a instalação prescrita pelo site do OpenResty <a href="https://openresty.org/en/installation.html">Link</a>, o site apresenta um tutorial de instalação.
-<p>É possivel instalar mais facil no <u>Linux</u> via <strong>yay</strong> assim mostrado abaixo: </p>
+<p>É possivel realizar instalar no <u>linux</u> mais facil do que apresentado no site oficial sudvia <strong>yay</strong> assim mostrado abaixo: </p>
  
  ```
  yay -Sy openresty
