@@ -1,5 +1,4 @@
 logs/
 nginx.conf.compiled
-.ss/
-.ss
-ss/
+/.ss
+/ss
