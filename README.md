@@ -34,7 +34,7 @@ apt install lua51 luarock
 ### Manjaro/Arch
 #### Lua e Luarocks
 ```
-pacman -Sy lua51 luarocks
+sudo pacman -Sy lua51 luarocks
 ```
 
 <p>Para outras distribuição vai ser preciso ver o gerenciador de pacotes da 
