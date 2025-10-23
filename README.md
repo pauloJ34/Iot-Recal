@@ -7,9 +7,11 @@ Iot-Recal é um sistema de recebimento de dados de dispositivos IOTs e visualiza
  - lua-5.1
  - luarocks
  - lapis
+    - lapis annotate 
  - openresty
 
 ## Instalação
+
 ### Windows
 Primeiro é preciso realizar a instalação do lua, para isso pode usar esse tutorial para a instalação manual<a href="https://terminalroot.com.br/2022/07/lua-windows.html">Link</a> e do luarocks pode usar esse tutorial para realizar a instalação <a href="https://github.com/luarocks/luarocks/wiki/Download">Link</a> ou pode usar o chocolatey usando os comandos:
 #### Lua
@@ -57,7 +59,7 @@ Para a **instalação do OpenResty**, é recomendado a instalação prescrita pe
 <span>Para usar o yay a sua distribuição linux precisa ter suporte aos pacotes <strong>aur</strong>.</span >
 ## Execução e testes
 
-Para a execução do servidor:
+Para a execução do servidord:
 ```
 lapis server
 ```
