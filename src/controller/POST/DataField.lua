@@ -1,3 +1,4 @@
+-- metodo para teste de inserir dados 
 return function(self)
 	math.randomseed(os.time())
 

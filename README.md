@@ -44,7 +44,8 @@ sua distribuição.</p>
 ```
 luarocks --local --lua-version=5.1 install lapis lapis-annotate
 ```
-<p>Se apresentar esse problema "<strong>"Error: module 'bit' not found:"</strong>" é necessario instalar o pacote "luabitop", código de instalação abaixo:</p>
+<p>Se apresentar esse problema: "<strong>"Error: module 'bit' not found:"</strong>"<br>
+É necessario instalar o pacote "luabitop", código de instalação abaixo:</p>
 
 ```
 luarocks --local --lua-version=5.1 luabitop
