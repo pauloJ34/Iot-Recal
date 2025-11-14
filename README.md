@@ -47,20 +47,26 @@ cp /etc/luarocks/config-5*.lua ~/.luarocks`
 ```
 luarocks config local_by_default true --lua-version=5.1
 ```
+<p>Configurar o PATH das lib do luarock</p>
+
+```
+sudo ln -s /usr/lib/luarock /usr/local/lib/luarock 
+```
+```
+luarocks path --lua-version=5.1 | grep LUA >> .profile .bash_profile
+```
 
 <p>Para a instalação do <strong>Lapis</strong> é igual a todos no terminal:</p>
 
 ```
 luarocks --local --lua-version=5.1 install lapis 
 ```
+<p><strong>Opcional: </strong>
+<br><strong>OBS:</strong> o Lapis-annotate serve para criar automaticamente as tabelas de banco de dados.<br>
+Para a instalação do <strong>Lapis-annotate</strong> é igual ao do lapis:</p>
+
 ```
 luarocks --local --lua-version=5.1 install lapis-annotate
-```
-```
-sudo ln -s /usr/lib/luarock /usr/local/lib/luarock 
-```
-```
-luarocks path --lua-version=5.1 | grep LUA >> .profile .bash_profile
 ```
 <p>Se apresentar esse problema: "<strong>"Error: module 'bit' not found:"</strong>"<br>
 É necessario instalar o pacote "luabitop", código de instalação abaixo:</p>
