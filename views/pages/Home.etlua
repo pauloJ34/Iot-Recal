@@ -58,23 +58,85 @@
 <script src="/static/JS/chart/chart.umd.js"></script>
 <script src="/static/JS/chartScript.js"></script>
 <script>
+const hostname = window.location.hostname;
+// console.log(hostname)
+// setInterval(requestDatas, 35*1000);
+requestDatas()
+function requestDatas(){
+  fetch(`http://${hostname}:8080/<%=session.user.registration%>/fielddata`)
+	.then((response) => {
+		// ...
+		// console.log(response.json())
+		return response.json()
+	})
+	.then((data) => {
+		// ...
+		//console.log(data)
+    const datatime = document.querySelectorAll(".dataTime");
+    for (let i of datatime) {
+      let isn = i
+      // console.log(i)
+			// i.querySelector("strong").textContent=""
+			i.querySelector("span").textContent=""
+		}
+		const itens = document.querySelectorAll(".item-canvas");
+		for (let i of itens) {
+			i.remove()
+		}
+
+		const itens_fields = document.querySelectorAll(".data-field");
+		for (let i of itens_fields) {
+			i.remove();
+		}
+    
+		let fields = data
+		fields.map((fields) => {
+		//	console.log(fields)
+			canvas_itens(fields);
+		})
+		let last_field = data;
+		last_field.map((last_fields) => {
+      // console.log(last_fields)
+      for (let itens in last_fields) {
+
+				// console.log(last_fields[itens])
+        let item = last_fields[itens]
+
+				let name = item.name;
+				let last_data = item.data[item.data.length - 1];
+				// console.log(name + "\n" + last_data + "\n" + item.data.length)
+        const date_time = item.column[item.column.length-1].split(" ")
+
+          datatime[0].querySelector("span").textContent=date_time[0]
+          datatime[1].querySelector("span").textContent=date_time[1]
+				createLastFieldData(name, last_data)
+			}
+		})
+
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+}
+
+
   // console.log(list_data)
-  const list_data = [
-    {
-      name: "field - 1",
-      column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      data: [12, 19, 3, 5, 2, 3],
-    },
-    {
-      name: "field - 2",
-      column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      data: [12, 19, 3, 5, 2, 3],
-    },
-    {
-      name: "field - 3",
-      column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      data: [12, 19, 3, 5, 2, 3],
-    },
-  ];
-  canvas_itens(list_data, list_data);
+  // const list_data = [
+  //   {
+  //     name: "field - 1",
+  //     column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  //     data: [12, 19, 3, 5, 2, 3],
+  //   },
+  //   {
+  //     name: "field - 2",
+  //     column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  //     data: [12, 19, 3, 5, 2, 3],
+  //   },
+  //   {
+  //     name: "field - 3",
+  //     column: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  //     data: [12, 19, 3, 5, 2, 3],
+  //   },
+  // ];
+  // canvas_itens(list_data, list_data);
 </script>

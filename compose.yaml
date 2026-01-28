@@ -1,7 +1,7 @@
 services:
   app:
     container_name: back-front
-    image: lapis-modificado 
+    image: lapis-modificada 
     restart: always
     working_dir: /app
     ports:

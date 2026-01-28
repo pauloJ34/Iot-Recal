@@ -32,7 +32,7 @@ function createLastFieldData(title, data) {
 
 	div.classList.add("data-field");
 	strong.id = title;
-	span.classList.add("data")
+	span.classList.add("data");
 
 	strong.textContent = `${title.replace(" ", "-")}:`;
 	span.textContent = data;
@@ -40,7 +40,6 @@ function createLastFieldData(title, data) {
 	div.appendChild(strong);
 	div.appendChild(span);
 	last_data_variable.appendChild(div);
-
 }
 
 function create_open_close(index) {
@@ -63,15 +62,25 @@ function create_open_close(index) {
 }
 
 function add_statistics(data, index) {
-	//console.log(data, "------------", index)
+	//console.log(data, "------------", index);
 
 	// let cont = parseInt(index) + 1;
 	const canvas = document.querySelectorAll(".canvas-chart")[index];
 	const list_data_canvas = data[index];
+	let columns = [];
+	for (let item of list_data_canvas.column) {
+		//console.log(item + "\n");
+		const splitHour = item.split(" ")[1];
+		const [hour, minute, secund] = splitHour.split(":");
+		//console.log(hour);
+
+		columns.push(`${hour}:${minute}`);
+	}
+	//console.log(columns);
 	new Chart(canvas, {
 		type: "line",
 		data: {
-			labels: list_data_canvas.column,
+			labels: columns,
 			datasets: [
 				{
 					label: list_data_canvas.name,
@@ -81,8 +90,7 @@ function add_statistics(data, index) {
 			],
 		},
 		options: {
-			onResize: () => {
-			},
+			onResize: () => {},
 			scales: {
 				y: {
 					beginAtZero: true,
@@ -93,11 +101,28 @@ function add_statistics(data, index) {
 					labels: {
 						// This more specific font property overrides the global property
 						font: {
-							size: 14
-						}
-					}
-				}
-			}
+							size: 14,
+						},
+					},
+				},
+				tooltip: {
+					callbacks: {
+						label: function (context) {
+							const label = context.dataset.label.replace("field", "Field-");
+							console.log(label);
+							return `${label} = ${context.formattedValue}`;
+						},
+						title:
+							//list_data_canvas.column,
+							function (context) {
+								return list_data_canvas.column[context[0].dataIndex].replaceAll(
+									"-",
+									"/",
+								);
+							},
+					},
+				},
+			},
 		},
 	});
 }
@@ -108,45 +133,3 @@ function canvas_itens(list_data) {
 		add_statistics(list_data, index);
 	}
 }
-const hostname = window.location.hostname;
-console.log(hostname)
-fetch(`http://${hostname}:8080/fielddata`)
-	.then((response) => {
-		// ...
-		// console.log(response.json())
-		return response.json()
-	})
-	.then((data) => {
-		// ...
-
-
-		const itens = document.querySelectorAll(".item-canvas");
-		for (let i of itens) {
-			i.remove()
-		}
-
-		const itens_fields = document.querySelectorAll(".data-field");
-		for (let i of itens_fields) {
-			i.remove();
-		}
-		console.log(data)
-		let fields = data
-		fields.map((fields) => {
-			//console.log(fields)
-			canvas_itens(fields);
-		})
-		let last_field = data;
-		last_field.map((last_fields) => {
-			for (let item of last_fields) {
-				console.log()
-				let name = item.name;
-				let last_data = item.data[item.data.length - 1];
-				console.log(name + "\n" + last_data + "\n" + item.data.length)
-				createLastFieldData(name, last_data)
-			}
-		})
-
-	})
-	.catch(function (error) {
-		console.log(error);
-	});

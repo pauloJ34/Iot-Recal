@@ -1,4 +1,4 @@
-local schema = require("lapis.db.schema")
+--[[local schema = require("lapis.db.schema")
 
 local types = schema.types
 
@@ -11,3 +11,4 @@ schema.create_table("data-users", {
 	'FOREIGN KEY (id_data) REFERENCES data(id)',
 	"FOREIGN KEY(registration_user) REFERENCES users(registration)"
 })
+]] --

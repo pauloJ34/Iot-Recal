@@ -7,7 +7,7 @@ Iot-Recal é um sistema de recebimento de dados de dispositivos IOTs e visualiza
  - lua-5.1
  - luarocks
  - lapis
-    - lapis annotate 
+ - lapis annotate 
  - openresty
 
 ## Instalação
